@@ -1,0 +1,18 @@
+{
+  "name": "agentpay-passport",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.12.4",
+  "scripts": {
+    "dev:web": "pnpm --filter @agentpay/web dev",
+    "dev:api": "pnpm --filter @agentpay/db build && pnpm --filter @agentpay/email build && pnpm --filter @agentpay/api dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "test:phase1": "pnpm --fail-if-no-match --filter @agentpay/shared test && pnpm --fail-if-no-match --filter @agentpay/contracts test && pnpm --fail-if-no-match --filter @agentpay/api test && pnpm --fail-if-no-match --filter @agentpay/web test"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.4",
+    "typescript": "^5.7.2"
+  }
+}
