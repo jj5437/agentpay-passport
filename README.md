@@ -49,6 +49,11 @@ docs/
   project-progress.md
 ```
 
+## Live Demo
+
+- **Product site**: <https://agentpay-passport.vercel.app/>
+- **Workspace**: <https://agentpay-passport.vercel.app/app>
+
 ## Demo Video
 
 <https://assets.jijingai.cc/agentpay-passport/demo-video/agentpay-passport-demo.mp4>
