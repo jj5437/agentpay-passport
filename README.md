@@ -49,6 +49,10 @@ docs/
   project-progress.md
 ```
 
+## Demo Video
+
+<https://assets.jijingai.cc/agentpay-passport/demo-video/agentpay-passport-demo.mp4>
+
 ## Demo Flow
 
 1. Open the public product site.
