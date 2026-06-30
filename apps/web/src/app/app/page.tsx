@@ -19,9 +19,9 @@ const tabs: Array<{ id: WorkspaceTab; label: string; kicker: string }> = [
 const milestones = [
   { label: "Invoice submitted", status: "complete" as const, detail: "Tokyo Design Studio - USDC 80" },
   { label: "Policy gate passed", status: "complete" as const, detail: "Amount, category, KYC all approved" },
-  { label: "Escrow funded", status: "complete" as const, detail: "USDC 80 locked - HashKey testnet" },
-  { label: "Delivery proof verified", status: "active" as const, detail: "Awaiting buyer confirmation" },
-  { label: "Funds released", status: "pending" as const, detail: "Release after proof acceptance" }
+  { label: "Evidence prepared", status: "active" as const, detail: "Registry deployed - recordEvidence pending" },
+  { label: "Buyer wallet signature", status: "pending" as const, detail: "Required before any on-chain payment write" },
+  { label: "Escrow funding", status: "pending" as const, detail: "Future milestone contract integration" }
 ];
 
 const receipts = [
@@ -149,8 +149,8 @@ function KycPanel() {
         </div>
       </div>
       <p className="kyc-detail-note">
-        KYC state is read from the HashKey identity SBT adapter before every payment evaluation. Vendors without an
-        approved SBT are blocked at the policy gate - no escrow is created.
+        The current demo uses a deterministic vendor trust state in the policy engine. The HashKey identity SBT adapter
+        is the intended production source before escrow funding.
       </p>
     </section>
   );
@@ -167,7 +167,8 @@ function EscrowPanel() {
         <span className="status-badge status-active">in progress</span>
       </div>
       <p className="escrow-detail-sub">
-        USDC 80 locked on HashKey Chain Testnet. Funds release only after buyer signs the final milestone.
+        USDC 80 is policy-approved and evidence-ready. No escrow is funded until the buyer signs a future HashKey wallet
+        transaction.
       </p>
       <div className="milestone-track">
         {milestones.map((m) => (

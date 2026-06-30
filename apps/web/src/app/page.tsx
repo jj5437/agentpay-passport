@@ -117,7 +117,7 @@ export default function HomePage() {
                 </div>
                 <div className="field">
                   <span className="label">KYC Gate</span>
-                  <span className="value">Approved SBT read</span>
+                  <span className="value">Approved demo trust state</span>
                 </div>
                 <div className="field">
                   <span className="label">Policy Limit</span>
@@ -179,7 +179,7 @@ export default function HomePage() {
                 </div>
                 <div className="logline">
                   <strong>Receipt</strong>
-                  <span>Escrow address and tx hash will enter evidence bundle.</span>
+                  <span>Registry address is live; recordEvidence tx is the next on-chain receipt.</span>
                 </div>
               </div>
             </section>
@@ -191,7 +191,7 @@ export default function HomePage() {
               </div>
               <code>intent_{approvedInvoice.id}</code>
               <p>
-                Policy snapshot, KYC state, escrow state, and receipt metadata stay bundled
+                Policy snapshot, vendor trust state, registry proof, and receipt metadata stay bundled
                 for judges.
               </p>
             </section>
@@ -240,9 +240,9 @@ export default function HomePage() {
           {[
             { step: "01", title: "Invoice Parsed", desc: "Agent reads a structured invoice card and extracts vendor, amount, currency, and milestones." },
             { step: "02", title: "Policy Gate", desc: "Budget, category, currency, and milestone checks run deterministically before any wallet prompt." },
-            { step: "03", title: "KYC Verified", desc: "Vendor trust status is read from the HashKey identity SBT adapter — no trust assumptions." },
-            { step: "04", title: "Escrow Locked", desc: "Funds are locked in milestone escrow on HashKey testnet. No release without buyer signature." },
-            { step: "05", title: "Receipt On-chain", desc: "Evidence bundle captures policy snapshot, KYC state, tx hash, and adapter mode for auditors." },
+            { step: "03", title: "KYC Checked", desc: "Vendor trust status is visible in the policy engine; HashKey identity reads are the next adapter step." },
+            { step: "04", title: "Signature Required", desc: "Allowed intents stop before execution. No escrow is funded without a buyer wallet signature." },
+            { step: "05", title: "Receipt Ready", desc: "Evidence bundle captures policy snapshot, vendor trust state, registry proof, and adapter mode for auditors." },
           ].map((item) => (
             <div key={item.step} className="pipeline-step">
               <span className="pipeline-step-num">{item.step}</span>
@@ -269,7 +269,7 @@ export default function HomePage() {
                 <span className="hk-dot hk-dot-green" />
                 <div>
                   <strong>KYC-native identity</strong>
-                  <span>Vendor SBT reads replace manual KYC checks. Policy gates query on-chain trust, not spreadsheets.</span>
+                  <span>Vendor SBT reads are the planned production trust source after the current deterministic demo gate.</span>
                 </div>
               </div>
               <div className="hashkey-point">
@@ -283,7 +283,7 @@ export default function HomePage() {
                 <span className="hk-dot hk-dot-accent" />
                 <div>
                   <strong>PayFi infrastructure</strong>
-                  <span>USDC settlement on HashKey testnet with escrow contracts designed for agent-prepared payments.</span>
+                  <span>HashKey testnet registry proof is live; escrow settlement is the next contract milestone.</span>
                 </div>
               </div>
             </div>
@@ -325,9 +325,9 @@ export default function HomePage() {
           {[
             ["Who signs the transaction", "Human buyer — always", "Agent wallet"],
             ["Policy enforcement", "Deterministic gate before wallet prompt", "Post-hoc or none"],
-            ["KYC integration", "HashKey SBT adapter — on-chain identity", "Off-chain or manual"],
-            ["Escrow", "Milestone-based, human-released", "None or agent-controlled"],
-            ["Evidence bundle", "Policy + KYC + receipt + tx hash — exportable", "Transaction log only"],
+            ["KYC integration", "Deterministic trust gate, HashKey SBT adapter planned", "Off-chain or manual"],
+            ["Escrow", "Human-signed milestone flow planned", "None or agent-controlled"],
+            ["Evidence bundle", "Policy + vendor trust + registry proof — exportable", "Transaction log only"],
             ["Audit trail", "Reviewer-ready JSON, on-chain anchored", "Not designed for auditors"],
             ["Compliance posture", "HashKey regulated PayFi", "Generic L1/L2"],
           ].map(([label, us, them]) => (

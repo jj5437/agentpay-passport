@@ -8,6 +8,15 @@ importers:
 
   .:
     devDependencies:
+      next:
+        specifier: ^15.5.19
+        version: 15.5.19(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      react:
+        specifier: ^19.2.7
+        version: 19.2.7
+      react-dom:
+        specifier: ^19.2.7
+        version: 19.2.7(react@19.2.7)
       turbo:
         specifier: ^2.5.4
         version: 2.9.18

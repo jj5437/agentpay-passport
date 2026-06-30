@@ -12,6 +12,9 @@
     "test:phase1": "pnpm --fail-if-no-match --filter @agentpay/shared test && pnpm --fail-if-no-match --filter @agentpay/contracts test && pnpm --fail-if-no-match --filter @agentpay/api test && pnpm --fail-if-no-match --filter @agentpay/web test"
   },
   "devDependencies": {
+    "next": "^15.5.19",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "turbo": "^2.5.4",
     "typescript": "^5.7.2"
   }

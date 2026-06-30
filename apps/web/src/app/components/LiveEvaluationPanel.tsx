@@ -22,7 +22,8 @@ type EvaluationResponse = {
   evidence: PaymentEvidenceBundle;
 };
 
-const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://127.0.0.1:8787";
+const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
+const evaluationEndpoint = apiBaseUrl ? `${apiBaseUrl}/payments/evaluate` : "/api/payments/evaluate";
 
 export function LiveEvaluationPanel() {
   const [scenario, setScenario] = useState<Scenario>("allowed");
@@ -40,7 +41,7 @@ export function LiveEvaluationPanel() {
       setError("");
 
       try {
-        const response = await fetch(`${apiBaseUrl}/payments/evaluate`, {
+        const response = await fetch(evaluationEndpoint, {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(payload)
@@ -57,7 +58,7 @@ export function LiveEvaluationPanel() {
       } catch {
         if (isCurrent) {
           setResult(null);
-          setError("Live evaluation API is unavailable. Start the API server and retry.");
+          setError("Live evaluation API is unavailable. Refresh the page and retry.");
         }
       } finally {
         if (isCurrent) {
